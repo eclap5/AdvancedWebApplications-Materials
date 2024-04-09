@@ -96,3 +96,6 @@ optional = "Hello"
 console.log(optional)
 optional = 123
 console.log(optional)
+
+
+// TODO: Add generics example

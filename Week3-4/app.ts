@@ -19,6 +19,8 @@
  * Postman vscode extension highly recommended for testing APIs
 */
 
+// TODO: Add middleware (Morgan, Helmet, CORS, etc.)
+
 import express, { Express } from 'express'
 import path from 'path'
 import router from './src/index'
