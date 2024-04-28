@@ -5,9 +5,11 @@
  *  - express.js (npm install express)
  *  - path (npm install path)
  *  - mongoose (npm install mongoose)
+ *  - morgan (npm install morgan)
  * 
  * In typescript some libraries do not have type definitions, so we need to install them separately:
  *  - npm install --save-dev @types/express (save as a development dependency -> only needed for development)
+ *  - npm install --save-dev @types/morgan
  * 
  * Nodemon and tsc-watch are also useful for development:
  *  - npm install --save-dev nodemon
@@ -24,6 +26,7 @@
 
 import express, { Express } from 'express'
 import path from 'path'
+import morgan from 'morgan'
 import mongoose, { Connection } from 'mongoose'
 import router from './src/index'
 
@@ -40,6 +43,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(morgan('dev'))
 
 app.use(express.static(path.join(__dirname, '../public')))
 app.use('/', router)
