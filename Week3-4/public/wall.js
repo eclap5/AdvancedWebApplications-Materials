@@ -46,6 +46,7 @@ function initializeCode() {
            })
 
         addNewPoem(poemInput.value, vip.checked)
+        poemInput.value = ""
     })
 
     const addPoemButtonFromApi = document.getElementById("add-poem-from-api");
@@ -60,10 +61,7 @@ function initializeCode() {
 
                 })
             })
-
-
-        //loadJson()
-
+        // loadJson()
     })
 }
 
