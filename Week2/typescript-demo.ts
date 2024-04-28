@@ -98,4 +98,30 @@ optional = 123
 console.log(optional)
 
 
-// TODO: Add generics example
+// Generics in TypeScript
+function genericFunction<T>(param: T) {
+    return `parameter "param" is of type ${typeof param}`
+}
+
+console.log(genericFunction("Hello"))
+console.log(genericFunction(123))
+console.log(genericFunction(true))
+
+// With generics use of any type can be avoided:
+type TGeneric<data> = {
+    value: data
+    isError: boolean
+}
+
+const response: TGeneric<{ status: number, message: string }> = {
+    value: { status: 200, message: "Success" },
+    isError: false
+}
+
+// The generic type can be predefined and simplified in a following way:
+type TResponseValue = TGeneric<{ status: number, message: string }>
+
+const response2: TResponseValue = {
+    value: { status: 404, message: "Forbidden" },
+    isError: true
+}

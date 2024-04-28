@@ -16,7 +16,7 @@
  * - "noEmitOnError": true
  *
  * Compile TypeScript file and run the JavaScript file:
- * - tsc <filename>.ts
+ * - tsc
  * - node <filename>.js
  */
 let myName;
@@ -52,3 +52,23 @@ function greet(name) {
 }
 console.log(greet("world"));
 // Optional type
+let optional;
+optional = "Hello";
+console.log(optional);
+optional = 123;
+console.log(optional);
+// Generics in TypeScript
+function genericFunction(param) {
+    return `parameter "param" is of type ${typeof param}`;
+}
+console.log(genericFunction("Hello"));
+console.log(genericFunction(123));
+console.log(genericFunction(true));
+const response = {
+    value: { status: 200, message: "Success" },
+    isError: false
+};
+const response2 = {
+    value: { status: 404, message: "Forbidden" },
+    isError: true
+};
