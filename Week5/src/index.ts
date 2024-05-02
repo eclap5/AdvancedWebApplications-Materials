@@ -38,7 +38,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 // Save a new poem to the database
 router.post('/api/poems', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const existingPoem: IPoem | null = await Poem.findOne({poem: req.body.poem})
+        const existingPoem: IPoem | null = await Poem.findOne({poem: req.body.poem}) // Check if poem already exists in database
         
         if (existingPoem) {
             return res.status(403).json({message: 'Poem already exists'})
