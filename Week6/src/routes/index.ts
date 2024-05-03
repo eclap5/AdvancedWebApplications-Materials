@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import { Image, IImage } from '../../models/Image'
+import { Image, IImage } from '../models/Image'
 import upload from '../middleware/multer-config'
 
 const router: Router = Router()
@@ -27,9 +27,7 @@ router.post('/api/upload', upload.single('image') , async (req: Request, res: Re
         if (!req.file) {
             return res.status(400).json({message: 'No file uploaded'})
         }
-        console.log(req.file.path)
         const imgPath: string = req.file.path.replace('public', '') // Remove the 'public' part of the path for the database
-        console.log(imgPath)
 
         const image: IImage = new Image({
             filename: req.file.filename,

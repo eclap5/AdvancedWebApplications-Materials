@@ -8,22 +8,23 @@
  *  - morgan (npm install morgan)
  *  - multer (npm install multer)
  * 
- * In typescript some libraries do not have type definitions, so we need to install them separately:
- *  - npm install --save-dev @types/express (save as a development dependency -> only needed for development)
+ * Install types for development (TypeScript):
+ *  - npm install --save-dev @types/express
  *  - npm install --save-dev @types/morgan
  *  - npm install --save-dev @types/multer
  * 
- * Nodemon and tsc-watch are also useful for development:
+ * Install nodemon and tsc-watch for development:
  *  - npm install --save-dev nodemon
  *  - npm install --save-dev tsc-watch
  * 
- * Add the following scripts to package.json:
+ * Add the following script to package.json:
  *  - "start": "tsc-watch --onSuccess \"nodemon dist/app.js\""
- *  - This script will compile the TypeScript code and run the server with nodemon
  * 
  * Install MongoDB community server from https://www.mongodb.com/try/download/community (MongoDB Compass GUI is also highly recommended)
  * 
  * Postman vscode extension highly recommended for testing APIs
+ * 
+ * Create a .gitignore file and add /node_modules and /dist
 */
 
 import express, { Express } from 'express'

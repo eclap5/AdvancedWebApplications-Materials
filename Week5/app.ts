@@ -22,13 +22,15 @@
  * Install MongoDB community server from https://www.mongodb.com/try/download/community (MongoDB Compass GUI is also highly recommended)
  * 
  * Postman vscode extension highly recommended for testing APIs
+ * 
+ * Create a .gitignore file and add /node_modules and /dist
 */
 
 import express, { Express } from 'express'
 import path from 'path'
 import morgan from 'morgan'
 import mongoose, { Connection } from 'mongoose'
-import router from './src/index'
+import router from './src/routes/index'
 
 const app: Express = express()
 const port: number = 3000

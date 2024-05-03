@@ -1,5 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
+// Define the interface for the Poem model (Mongoose document)
 interface IPoem extends Document {
     poem: string
     vip: boolean
@@ -13,7 +14,7 @@ let poemSchema: Schema = new Schema({
 })
 
 // Create a model using the schema
-const Poem = mongoose.model<IPoem>('Poem', poemSchema)
+const Poem: mongoose.Model<IPoem> = mongoose.model<IPoem>('Poem', poemSchema)
 
 // Export the model and the interface to be used in other files
 export { Poem, IPoem }

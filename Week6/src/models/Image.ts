@@ -15,6 +15,6 @@ const imageSchema = new Schema({
     createdAt: { type: Date, default: Date.now }
 })
 
-const Image = mongoose.model<IImage>('Image', imageSchema)
+const Image: mongoose.Model<IImage> = mongoose.model<IImage>('Image', imageSchema)
 
 export { Image, IImage }

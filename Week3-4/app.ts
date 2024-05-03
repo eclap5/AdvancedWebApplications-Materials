@@ -19,6 +19,8 @@
  *  - This script will compile the TypeScript code and run the server with nodemon
  * 
  * Postman vscode extension highly recommended for testing APIs
+ * 
+ * Create a .gitignore file and add /node_modules and /dist
 */
 
 import express, { Express } from 'express'

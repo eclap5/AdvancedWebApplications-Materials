@@ -2,7 +2,7 @@
 
 import { Request, Response, NextFunction, Router } from 'express'
 import { Poem, IPoem } from '../models/Poem'
-import populatePoems from '../data/poems'
+import populatePoems from '../../data/poems'
 
 const router: Router = Router()
 
