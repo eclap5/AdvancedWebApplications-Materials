@@ -33,7 +33,7 @@
 */
 
 import express, { Express } from 'express'
-import path, { parse } from 'path'
+import path from 'path'
 import morgan from 'morgan'
 import mongoose, { Connection } from 'mongoose'
 import dotenv from 'dotenv'
