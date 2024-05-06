@@ -1,35 +1,17 @@
 /**
- * Initialize TypeScript with tsc --init (modify configuration in tsconfig.json as previously instructed)
- * Initialize node with npm init -y (-y for default settings)
- * Install: 
- *  - express.js (npm install express)
- *  - path (npm install path)
- *  - mongoose (npm install mongoose)
- *  - morgan (npm install morgan)
- *  - multer (npm install multer)
- *  - dotenv (npm install dotenv)
- *  - bcrypt (npm install bcrypt)
- *  - jsonwebtoken (npm install jsonwebtoken)
+ * Week8 will be a continuation of Week7. Copy the Week7 folder and rename it to Week8.
+ * @link https://github.com/eclap5/AdvancedWebApplications-Materials/tree/main
  * 
- * Install types for development (TypeScript):
- *  - npm install --save-dev @types/express
- *  - npm install --save-dev @types/morgan
- *  - npm install --save-dev @types/multer
- *  - npm install --save-dev @types/bcrypt
- *  - npm install --save-dev @types/jsonwebtoken
+ * Install following dependencies:
+ * npm install passport
+ * npm install passport-google-oauth20
  * 
- * Install nodemon and tsc-watch for development:
- *  - npm install --save-dev nodemon
- *  - npm install --save-dev tsc-watch
+ * npm install --save-dev @types/passport
+ * npm install --save-dev @types/passport-google-oauth20
  * 
- * Add the following script to package.json:
- *  - "start": "tsc-watch --onSuccess \"nodemon dist/app.js\""
+ * Add .env to the .gitignore file
  * 
- * Install MongoDB community server from https://www.mongodb.com/try/download/community (MongoDB Compass GUI is also highly recommended)
- * 
- * Postman vscode extension highly recommended for testing APIs
- * 
- * Create a .gitignore file and add /node_modules and /dist
+ * Check Readme.md for instructions to create Google Cloud Credentials
 */
 
 import express, { Express } from 'express'
@@ -38,7 +20,7 @@ import morgan from 'morgan'
 import mongoose, { Connection } from 'mongoose'
 import dotenv from 'dotenv'
 import router from './src/routes/index'
-import passport from './src/middleware/google-passport-config'
+import passport from './src/middleware/google-passport-config' // NOTE: Import passport from google-passport-config.ts
 
 // Load environment variables from .env file
 dotenv.config()
@@ -55,7 +37,7 @@ const db: Connection = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
 // Middleware
-app.use(passport.initialize())
+app.use(passport.initialize()) // Import passport from middleware and initialize it
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))

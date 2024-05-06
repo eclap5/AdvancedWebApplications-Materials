@@ -1,6 +1,8 @@
 import passport from 'passport'
 import { Strategy, Profile } from 'passport-google-oauth20'
 
+
+// Create Google OAuth 2.0 strategy
 passport.use(new Strategy({
     clientID: process.env.GOOGLE_CLIENT_ID as string,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,

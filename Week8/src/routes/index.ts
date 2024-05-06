@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import { User, IUser } from '../models/User'
 import { validateToken } from '../middleware/validateToken'
-import passport from '../middleware/google-passport-config'
+import passport from '../middleware/google-passport-config' // NOTE: Import passport from google-passport-config.ts
 
 const router: Router = Router()
 
@@ -69,6 +69,8 @@ router.post('/api/users/login',
     }
 })
 
+// This route is protected by the validateToken middleware
+// List all active users from database
 router.get('/api/users/list', validateToken, async (req: Request, res: Response) => {
     try {
         const users: IUser[] = await User.find()
@@ -79,15 +81,18 @@ router.get('/api/users/list', validateToken, async (req: Request, res: Response)
     }
 })
 
+// This is the POST route where the "data-login_uri" will be redirected to
+// This route will initialize the Google OAuth2.0 login process in google-passport-config.ts
 router.post('/api/users/login/google', passport.authenticate('google', { scope: ['profile'] }))
 
+// The google-passport-config.ts will redirect to this "callback" route after the authentication process
 router.get('/auth/google/callback',
     passport.authenticate('google', {
-        session: false,
+        session: false, // Do not use session, use token instead (default is session -> would need express-session middleware)
         failureRedirect: '/api/users/login' 
     }), async (req: Request, res: Response) => {
         try {
-            const user: IUser | null = await User.findOne({ googleId: (req.user as { id: string }).id })
+            const user: IUser | null = await User.findOne({ googleId: (req.user as { id: string }).id }) // Check if user exists in the database
             const jwtPayload: JwtPayload = {}
             if (!user) {
                 const newUser: IUser = await User.create({
@@ -100,8 +105,8 @@ router.get('/auth/google/callback',
                 jwtPayload.username = user.username
                 jwtPayload.id = user.googleId
                 }
-            const token: string = jwt.sign(jwtPayload, process.env.JWT_SECRET as string, { expiresIn: '30m' })
-            return res.redirect(`/index.html?token=${token}`)
+            const token: string = jwt.sign(jwtPayload, process.env.JWT_SECRET as string, { expiresIn: '30m' }) // Create token of the google user
+            return res.redirect(`/index.html?token=${token}`) // Pass the token as a query parameter to the index.html and redirect
         } catch (error: any) {
             console.error(`Error during during external login: ${error}`)
             return res.status(500).json({ error: 'Internal Server Error' })
