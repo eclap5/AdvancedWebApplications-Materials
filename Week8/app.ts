@@ -11,6 +11,8 @@
  * 
  * Add .env to the .gitignore file
  * 
+ * Change DB address in app.ts to mongodb://127.0.0.1:27017/GoogleAuthDB
+ * 
  * Check Readme.md for instructions to create Google Cloud Credentials
 */
 
@@ -29,7 +31,7 @@ const app: Express = express()
 const port: number = parseInt(process.env.PORT as string) || 3000 // Secrets are stored as strings in .env file
 
 // Initialize MongoDB connection
-const mongoDB: string = 'mongodb://127.0.0.1:27017/usercontrolDB'
+const mongoDB: string = 'mongodb://127.0.0.1:27017/GoogleAuthDB'
 mongoose.connect(mongoDB)
 mongoose.Promise = Promise
 const db: Connection = mongoose.connection
