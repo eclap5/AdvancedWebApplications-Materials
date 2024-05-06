@@ -68,6 +68,8 @@ router.post('/api/users/login',
     }
 })
 
+// This route is protected by the validateToken middleware
+// List all active users from database
 router.get('/api/users/list', validateToken, async (req: Request, res: Response) => {
     try {
         const users: IUser[] = await User.find()
