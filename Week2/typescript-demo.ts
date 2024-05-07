@@ -1,6 +1,6 @@
 /**
  * Pre-requisites:
- * - Node.js version 20.11.1 (preferably in Path)
+ * - Node.js version 20.12.2 (preferably in Path)
  * @link https://nodejs.org/en/download/
  * 
  * Install TypeScript globally:
