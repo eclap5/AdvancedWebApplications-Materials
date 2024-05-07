@@ -27,5 +27,5 @@
 6. Copy the code and paste it in your HTML file
 7. Load the Google API script in every page where Google Sign-in button is used -> `<script src="https://accounts.google.com/gsi/client" async></script>`
 
-NOTE: Google Sign-in JavaScript for Web is deprecated and therefore GIS should be used (Google Identity Services)<br />
+NOTE: `Google Sign-in JavaScript for Web` is deprecated and therefore GIS should be used (Google Identity Services)<br />
 NOTE: Sometimes when the Google Cloud Credentials are changed, the application may not work. In that case, restart the application and wait for a few minutes 

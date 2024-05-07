@@ -13,7 +13,7 @@
  * 
  * Change DB address in app.ts to mongodb://127.0.0.1:27017/GoogleAuthDB
  * 
- * Check Readme.md for instructions to create Google Cloud Credentials
+ * Check README.md for instructions to create Google Cloud Credentials
 */
 
 import express, { Express } from 'express'
