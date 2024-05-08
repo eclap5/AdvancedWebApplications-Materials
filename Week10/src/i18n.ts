@@ -6,6 +6,7 @@
  * 4. react-i18next - npm install react-i18next
  * 
  * NOTE: i18n needs to be imported in the main.tsx file in order to work
+ * NOTE: translations need to be added in the public/locales folder
  */
 
 import i18n from 'i18next'

@@ -1,3 +1,23 @@
+# Project Setup
+
+[https://vitejs.dev/guide/](https://vitejs.dev/guide/)
+
+1. `npm create vite@latest`
+2. Select project and package name (Week10)
+3. Select framework (React)
+4. Select variant (TypeScript)
+5. After initialization, `cd Week10 && npm install`
+6. `npm run dev` to start the development server
+
+NOTE: Latest Vite version requires Node.js version 18+ and some of the features may require Node.js version 20+. Recommended to upgrade Node to latest lts version (currently v20.12.2)
+
+## Week 10 content
+Week 10 continues to explore further features of React. Covering topics such as:
+- React Router
+- Localization
+- useEffect hook
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
