@@ -1,7 +1,7 @@
 # Google OAuth 2.0 login with passport-google-oauth20 and jwt token verification
 
 ## Pre-requisites for the authentication
-1. Go to [Google Developer Console] (console.cloud.google.com)
+1. Go to [Google Developer Console](console.cloud.google.com)
 2. From the top left corner create new project
 3. Select the project and go to `APIs & Services` -> `Credentials`
 4. Click on `Create Credentials` -> `OAuth client ID`
@@ -19,7 +19,7 @@
 16. Add `GOOGLE_CALLBACK_URL=/auth/google/callback` to your `.env` file
 
 ## Google Sign-in button
-1. Go to [Generate HTML code] (https://developers.google.com/identity/gsi/web/tools/configurator)
+1. Go to [Generate HTML code](https://developers.google.com/identity/gsi/web/tools/configurator)
 2. Add the client ID and login URI -> The login uri is the POST endpoint where the call is made, i.e. `/api/users/login/google`
 3. Click `Next`
 4. Select `Enable Sign in with Google button`
